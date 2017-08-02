@@ -10,7 +10,7 @@ import './index.css';
 import App from './App';
 import SignUp from './users/SignUp'
 import SignIn from './users/SignIn'
-
+import Board from './components/Board'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
 injectTapEventPlugin()
@@ -19,7 +19,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        {/* <IndexRoute component={Lobby} /> */}
+        <IndexRoute component={Board} />
         {/* <Route path="/games/:gameId" component={MemoryGame} /> */}
         <Route path="/sign-in" component={SignIn} />
         <Route path="/sign-up" component={SignUp} />
