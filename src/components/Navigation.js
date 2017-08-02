@@ -12,6 +12,10 @@ class Navigation extends PureComponent {
     this.props.push('/sign-up')
   }
 
+  signIn() {
+    this.props.push('/sign-in')
+  }
+
   goHome() {
     this.props.push('/')
   }
@@ -23,8 +27,14 @@ class Navigation extends PureComponent {
         title="Gomoku (Five-in-a-row)"
         iconElementLeft={<IconButton onClick={this.goHome.bind(this)}><GroupWorkIcon /></IconButton>}
         iconElementRight={signedIn ?
-          <FlatButton label="Sign out" onClick={this.props.signOut} /> :
-          <FlatButton label="Sign up" onClick={this.signUp.bind(this)} />
+          <div className="SignSystem">
+            <FlatButton label="Sign out" onClick={this.props.signOut} />
+          </div>
+          :
+          <div className="SignSystem">
+            <FlatButton label="Sign in" onClick={this.signIn.bind(this)} />
+            <FlatButton label="Sign up" onClick={this.signUp.bind(this)} />
+          </div>
         }
       />
     )

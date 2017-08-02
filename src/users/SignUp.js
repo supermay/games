@@ -138,7 +138,7 @@ export class SignUp extends PureComponent {
           <div className="input">
             <TextField ref="name" type="text" hintText="Your name"
               onChange={this.validateName.bind(this)}
-              errorText={ this.state.nameError} />
+              errorText={this.state.nameError} />
           </div>
           <div className="input">
             <TextField ref="email" type="email" hintText="Email address"
