@@ -39,8 +39,8 @@ class API {
     return this.app.authenticate({
       strategy: 'local',
       email,
+      password
     })
-    password
     .then((response) => {
       console.log('Authenticated!', response);
       return this.app.passport.verifyJWT(response.accessToken);

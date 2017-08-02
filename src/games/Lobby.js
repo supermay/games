@@ -5,8 +5,8 @@ class Lobby extends PureComponent {
   render() {
     return (
       <div>
-        <CreateGameButton />
         <h1>Lobby</h1>
+        <CreateGameButton />
       </div>
     );
   }
