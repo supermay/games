@@ -15,8 +15,9 @@ ol, ul {
   margin-bottom: 10px; }
 
 .square {
-  background: light grey;
+  background: white;
   border: 1px solid #999;
+  border-radius: 50%;
   float: left;
   font-size: 24px;
   font-weight: bold;

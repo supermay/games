@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
 import Navigation from './components/Navigation'
 import Board from './components/Board'
+import Lobby from './games/Lobby'
 
 class App extends Component {
   static childContextTypes = {
@@ -20,6 +21,7 @@ class App extends Component {
         <div className="App">
           <Navigation />
           <Board />
+          {/* <Lobby /> */}
           { this.props.children }
         </div>
       </MuiThemeProvider>
