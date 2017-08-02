@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  background-color: #f6f6f6; }
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 0; }
 
 ol, ul {
   padding-left: 30px; }
@@ -15,8 +17,9 @@ ol, ul {
   margin-bottom: 10px; }
 
 .square {
-  background: light grey;
+  background: white;
   border: 1px solid #999;
+  border-radius: 50%;
   float: left;
   font-size: 24px;
   font-weight: bold;
