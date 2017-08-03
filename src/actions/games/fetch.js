@@ -32,7 +32,6 @@ export default () => {
           .then((result) => {
             dispatch({ type: APP_DONE_LOADING })
             dispatch({ type: LOAD_SUCCESS })
-            debugger
             dispatch({
               type: FETCHED_GAMES,
               payload: result.data
@@ -43,6 +42,10 @@ export default () => {
             dispatch({
               type: LOAD_ERROR,
               payload: error.message
+            })
+            dispatch({
+              type: FETCHED_GAMES,
+              payload: []
             })
           })
       })
@@ -62,6 +65,10 @@ export default () => {
             dispatch({
               type: LOAD_ERROR,
               payload: error.message
+            })
+            dispatch({
+              type: FETCHED_GAMES,
+              payload: []
             })
           })
       })
