@@ -4,7 +4,7 @@ import games from './games'
 import loading from './loading'
 import loadError from './loadError'
 import currentUser from './currentUser'
-// import currentGame from './currentGame'
+import currentGame from './currentGame'
 import subscriptions from './subscriptions'
 
 export default {
@@ -12,6 +12,6 @@ export default {
   loading,
   loadError,
   currentUser,
-  // currentGame,
+  currentGame,
   subscriptions,
 }

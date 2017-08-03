@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import Square from './Square';
+import JoinGameDialog from './JoinGameDialog';
+import fetchGames from '../actions/games/fetch';
+import getCurrentGame from '../actions/games/get';
+import subscribeToGames from '../actions/games/subscribe';
+
+
+
 const BLACK = "\u2B24";
 const WHITE = "\u25EF";
 const EMPTY = '';
+
 class Board extends Component {
+  componentWillMount() {
+    const { game, fetchGames, getCurrentGame, subscribeToGames, subscribed } = this.props
+    const { gameId } = this.props.params
+
+    if (!game) fetchGames()
+    getCurrentGame(gameId)
+    if (!subscribed) subscribeToGames()
+  }
+
   constructor(){
     super();
     this.state = {
@@ -127,10 +145,29 @@ class Board extends Component {
     }
     return (
       <div>
-        <div className="status">{this.getStatus()}</div>
-        {rows}
+        <div>
+          <div className="status">{this.getStatus()}</div>
+          {rows}
+        </div>
+        <JoinGameDialog />
       </div>
     );
   }
 }
-export default Board
+
+const mapStateToProps = ({ currentUser, currentGame, games, subscriptions }) => {
+  const game = games.filter((g) => (g._id === currentGame))[0]
+  const currentPlayer = game && game.players.filter((p) => (p.userId === currentUser._id))[0]
+
+  return {
+    game,
+    hasTurn: game && game.players.map((p) => (p.userId))[game.turn] === currentUser._id,
+    subscribed: subscriptions.includes('games'),
+  }
+}
+
+export default connect(mapStateToProps, {
+  getCurrentGame,
+  fetchGames,
+  subscribeToGames
+})(Board)

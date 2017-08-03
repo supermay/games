@@ -15,7 +15,7 @@ import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset';
 import WaitingIcon from 'material-ui/svg-icons/image/timelapse';
 
 class Lobby extends PureComponent {
-  componentWillMount() {
+componentWillMount() {
   const { subscribed, fetchGames, subscribeToGames } = this.props
   fetchGames()
   if (!subscribed) subscribeToGames()
@@ -36,6 +36,7 @@ isJoinable(game) {
 }
 
 isPlayer(game) {
+  if(!this.props.currentUser) return false
   return game.players
     .map((p) => (p.userId))
     .includes(this.props.currentUser._id)
@@ -44,13 +45,13 @@ isPlayer(game) {
 renderGame(game, index) {
   let ActionIcon = this.isJoinable(game) ? JoinGameIcon : WatchGameIcon
   if (this.isPlayer(game)) ActionIcon = game.isPlayable ? PlayGameIcon : WaitingIcon
-
+  debugger
   return (
     <MenuItem
       key={index}
       onClick={this.goToGame(game._id).bind(this)}
       rightIcon={<ActionIcon />}
-      primaryText={`${game.players[0].userId }'s Game`} />
+      primaryText={`${game.owner.name }'s Game`} />
   )
 }
 

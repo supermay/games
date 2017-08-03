@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import muiTheme from './assets/styles/theme'
 import Navigation from './components/Navigation'
-import Board from './components/Board'
 
 class App extends Component {
   static childContextTypes = {
@@ -20,7 +19,6 @@ class App extends Component {
         <div>
           <Navigation />
           <div className="App">
-            {/* <Board /> */}
             { this.props.children }
           </div>
         </div>
