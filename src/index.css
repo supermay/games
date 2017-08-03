@@ -40,3 +40,8 @@ ol, ul {
 
 .game-info {
   margin-left: 20px; }
+
+.Lobby .paper {
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%; }
