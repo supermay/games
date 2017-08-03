@@ -15,7 +15,7 @@ import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset';
 import WaitingIcon from 'material-ui/svg-icons/image/timelapse';
 
 class Lobby extends PureComponent {
-  componentWillMount() {
+  ideacomponentWillMount() {
   const { subscribed, fetchGames, subscribeToGames } = this.props
   fetchGames()
   if (!subscribed) subscribeToGames()
