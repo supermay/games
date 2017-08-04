@@ -24,12 +24,14 @@ class JoinGameDialog extends PureComponent {
           label="No Thanks"
           primary={true} />
       </Link>,
-      <RaisedButton
-        label="Join Game"
-        primary={true}
-        keyboardFocused={true}
-        onTouchTap={this.joinGame}
-      />,
+      <Link to="/">
+        <RaisedButton
+          label="Join Game"
+          primary={true}
+          keyboardFocused={true}
+          onTouchTap={this.joinGame}
+        />
+      </Link>,
     ]
 
     return (
